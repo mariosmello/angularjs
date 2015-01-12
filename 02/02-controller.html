@@ -1,0 +1,18 @@
+<html ng-app="notesApp">
+	<head>
+		<title>Hello AngularJS</title>
+	</head>
+	<body ng-controller="MainCtrl">
+		Hello {{1 + 1}}nd time AngularJS
+	</body>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script>
+
+		angular.module('notesApp', [])
+			.controller('MainCtrl', [function() {
+				console.log('Controller criado.');
+			}]);
+
+	</script>
+</html>
+
