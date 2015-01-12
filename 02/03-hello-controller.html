@@ -1,0 +1,24 @@
+<html ng-app="notesApp">
+	<head>
+    	<meta charset="utf-8">
+		<title>Notes App</title>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		{{ctrl.helloMsg}} AngularJS
+		<br />
+		{{ctrl.goodbyeMsg}} AngularJS
+		<br />
+		<p>Exibe apenas a primeira mensagem pois para enviar um valor para o HTML é necessário declarar o valor na instancia do controlador usando o this</p>
+	</body>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script>
+
+		angular.module('notesApp', [])
+			.controller('MainCtrl', [function() {
+				this.helloMsg = 'Olá';
+				var goodbyeMsg = 'Fui';
+			}]);
+
+	</script>
+</html>
+
