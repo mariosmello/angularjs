@@ -1,0 +1,14 @@
+{
+  "name": "learningAngular",
+  "version": "0.0.1",
+  "dependencies" : {
+    "angular" : "latest"
+  },
+  "authors": [
+    "Mario Mello <mario@dindigital.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "bower_components"
+  ]
+}
