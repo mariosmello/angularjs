@@ -1,0 +1,30 @@
+<html ng-app="notesApp">
+	<head>
+    	<meta charset="utf-8">
+		<title>Notes App</title>
+	</head>
+	<body ng-controller="MainCtrl as ctrl">
+		<div ng-repeat="note in ctrl.notes">
+			<span class="label">{{note.label}}</span>
+			<span class="status" ng-bind="note.done"></span>
+		</div>
+	</body>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script>
+
+		angular.module('notesApp', [])
+			.controller('MainCtrl', [function() {
+
+				var self = this;
+				self.notes = [
+					{id: 1, label: 'Primeiro', done: false},
+					{id: 2, label: 'Segundo', done: true},
+					{id: 3, label: 'Terceiro', done: false},
+					{id: 4, label: 'Quarto', done: true}
+				];
+
+			}]);
+
+	</script>
+</html>
+
