@@ -1,0 +1,49 @@
+<html ng-app="notesApp">
+	<head>
+    	<meta charset="utf-8">
+		<title>Notes App</title>
+		<style type="text/css">
+			.first {
+				background-color: green;
+			}
+			.last {
+				background-color: red;
+			}
+			[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+			  display: none !important;
+			}
+		</style>
+	</head>
+	<body ng-cloak class="ng-cloak" ng-controller="MainCtrl as ctrl">
+		<div ng-repeat="note in ctrl.notes" ng-class="{'first': $first, 'last': $last}">
+			<div>Fist Element: <span ng-bind="$first"></span></div>
+			<div>Middle Element: {{$middle}}</div>
+			<div>Last Element: {{$last}}</div>
+			<div>Index Element: {{$index}}</div>
+			<div>Even Position: {{$even}}</div>
+			<div>Odd Position: {{$odd}}</div>
+			<span class="label">{{note.label}}</span>
+			<span class="status" ng-bind="note.done"></span>
+			<br />
+			<br />
+		</div>
+	</body>
+	<script src="/bower_components/angular/angular.min.js"></script>
+	<script>
+
+		angular.module('notesApp', [])
+			.controller('MainCtrl', [function() {
+
+				var self = this;
+				self.notes = [
+					{id: 1, label: 'Primeiro', done: false},
+					{id: 2, label: 'Segundo', done: true},
+					{id: 3, label: 'Terceiro', done: false},
+					{id: 4, label: 'Quarto', done: true}
+				];
+
+			}]);
+
+	</script>
+</html>
+
