@@ -1,0 +1,25 @@
+<html ng-app="notesApp">
+    <head>
+        <title>Notes App</title>
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <form ng-submit="ctrl.submit()" name="myForm">
+            <input type="text" ng-model="ctrl.user.username" ng-minlength="4" required>
+            <input type="password" ng-model="ctrl.user.password" ng-minlength="6" required>
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+        </form>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script>
+            angular.module('notesApp', [])
+                .controller('MainCtrl', [function(){
+                    var self = this;
+
+                    self.submit = function() {
+                        console.log('User clicked submit with:',
+                            self.user);
+                    };
+
+                }]);
+        </script>
+    </body>
+</html>

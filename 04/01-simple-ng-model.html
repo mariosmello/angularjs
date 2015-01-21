@@ -1,0 +1,16 @@
+<html ng-app="notesApp">
+    <head>
+        <title>Notes App</title>
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <input type="text" ng-model="ctrl.username">
+        You typed {{ctrl.username}}
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script>
+            angular.module('notesApp', [])
+                .controller('MainCtrl', [function(){
+                    this.username = 'nothing';
+                }]);
+        </script>
+    </body>
+</html>

@@ -1,0 +1,55 @@
+<html ng-app="notesApp">
+    <head>
+        <meta charset="utf-8">
+        <title>Notes App</title>
+        <style type="text/css">
+            .username.ng-valid {
+                background-color: green;
+            }
+            .username.ng-dirty.ng-invalid-required {
+                background-color: red;
+            }
+            .username.ng-dirty.ng-invalid-minlength {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body ng-controller="MainCtrl as ctrl">
+        <form ng-submit="ctrl.submit()" name="myForm">
+            <input
+                class="username"
+                name="uname"
+                type="text"
+                ng-model="ctrl.user.username"
+                ng-minlength="4"
+                required />
+            <br />
+            <span ng-hide="myForm.uname.$pristine" ng-show="myForm.uname.$error.required">Este campo é obrigatório</span>
+            <span ng-show="myForm.uname.$error.minlength">Este campo precisa ter no mínimo 4 caracteres</span>
+            <br />
+            <input name="upassword"
+            type="password"
+            ng-model="ctrl.user.password"
+            ng-minlength="6"
+            required />
+            <br />
+            <span ng-show="myForm.upassword.$error.required">Este campo é obrigatório</span>
+            <span ng-show="myForm.upassword.$error.minlength">Este campo precisa ter no mínimo 6 caracteres</span>
+            <br />
+            <input type="submit" value="Submit" ng-disabled="myForm.$invalid">
+        </form>
+        <script src="/bower_components/angular/angular.min.js"></script>
+        <script>
+            angular.module('notesApp', [])
+                .controller('MainCtrl', [function(){
+                    var self = this;
+
+                    self.submit = function() {
+                        console.log('User clicked submit with:',
+                            self.user);
+                    };
+
+                }]);
+        </script>
+    </body>
+</html>
