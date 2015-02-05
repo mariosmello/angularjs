@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="notesApp">
+<head>
+    <title>$http get example</title>
+    <style type="text/css">
+        .item {padding: 10px;}
+    </style>
+</head>
+<body ng-controller="MainCtrl as mainCtrl">
+    <h1>Hello Servers!</h1>
+    <div ng-repeat="todo in mainCtrl.items" class="item">
+        <div><span ng-bind="todo.label"></span></div>
+        <div>- by <span ng-bind="todo.author"></span></div>
+    </div>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('notesApp', [])
+            .controller('MainCtrl', ['$http', function($http) {
+                var self = this;
+                self.items = [];
+
+                $http.get('http://angular.dev:8000/api/note').then(function(response) {
+                    self.items = response.data;
+                }, function (errResponse) {
+                    console.error('erro');
+                });
+
+            }]);
+    </script>
+</body>
+</html>
