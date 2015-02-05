@@ -1,5 +1,5 @@
 Iniciar servidor Node para testes
 ==========================
-`npm install`
-`node server.js` (osx)
-`nodejs server.js` (linux)
+1. `npm install`
+2. `node server.js` (osx)
+3. `nodejs server.js` (linux)
