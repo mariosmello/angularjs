@@ -1,0 +1,1 @@
+`npm install karma-jasmine karma-chrome-launcher`
