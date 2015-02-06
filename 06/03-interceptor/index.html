@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html ng-app="notesApp">
+<head>
+    <title>$http Interceptor example</title>
+    <style type="text/css">
+        .item {padding: 10px;}
+    </style>
+</head>
+<body ng-controller="MainCtrl as mainCtrl">
+    <h1>Hello Servers!</h1>
+    <div ng-repeat="todo in mainCtrl.items" class="item">
+        <div><span ng-bind="todo.label"></span></div>
+        <div>- by <span ng-bind="todo.author"></span></div>
+    </div>
+    <div>
+    <form name="addForm"
+          ng-submit="mainCtrl.add()">
+      <input type="text"
+             placeholder="Label"
+             ng-model="mainCtrl.newTodo.label"
+             required>
+      <input type="text"
+             placeholder="Author"
+             ng-model="mainCtrl.newTodo.author"
+             required>
+      <input type="submit"
+             value="Add"
+             ng-disabled="addForm.$invalid">
+    </form>
+    </div>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script>
+      angular.module('notesApp', [])
+        .controller('MainCtrl', ['$http', function($http) {
+          var self = this;
+          self.items = [];
+          self.newTodo = {};
+          var fetchTodos = function() {
+            return $http.get('http://angular.dev:8000/api/note').then(
+                function(response) {
+              self.items = response.data;
+            }, function(errResponse) {
+              console.error('Error while fetching notes');
+            });
+          };
+
+          fetchTodos();
+
+          self.add = function() {
+            $http.post('http://angular.dev:8000/api/note', self.newTodo)
+                .then(fetchTodos)
+                .then(function(response) {
+                  self.newTodo = {};
+                });
+          };
+
+        }]).factory('MyLoggingInterceptor', ['$q', function() {
+          return {
+            request: function(config) {
+              console.log('Request made with ', config);
+              return config;
+            },
+            requestError: function(rejection) {
+              console.log('Request error due to ', rejection);
+              return $q.reject('Not Allow');
+            },
+            response: function(response) {
+              console.log('Response from server ', response);
+              return response || $q.when(response);
+            },
+            responseError: function(rejection) {
+              console.log('Error in response', rejection);
+              return $q.reject(rejection);
+            }
+          };
+        }]).config(['$httpProvider', function($httpProvider) {
+          $httpProvider.interceptors.push('MyLoggingInterceptor');
+        }]);
+    </script>
+</body>
+</html>
