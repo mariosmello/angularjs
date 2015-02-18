@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Filters in Action</title>
+</head>
+<body ng-app="filtersApp">
+    <div ng-controller="FilterCtrl as ctrl">
+        <div>Amount as a number {{ctrl.amount | number}}</div>
+        <div>Amount as a number (4) {{ctrl.amount | number:4}}</div>
+        <div>Total Cost as currency {{ctrl.totalCost | currency}}</div>
+        <div>Total Cost in INR {{ctrl.totalCost | currency:'INR'}}</div>
+        <div>Shouting the name {{ctrl.name | uppercase}}</div>
+        <div>Whispering the name {{ctrl.name | lowercase}}</div>
+        <div>Start Time {{ctrl.startTime | date:'medium'}}</div>
+        <div>Limited Name {{ctrl.name | lowercase | limitTo: 5}}</div>
+        <div>Custom date {{ctrl.startTime | date:'dd/M/yyyy'}}</div>
+    </div>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript">
+        angular.module('filtersApp',[])
+            .controller('FilterCtrl', [function() {
+                this.amount = 1024;
+                this.totalCost = 4908;
+                this.name = 'Mário Mello';
+                this.startTime = new Date().getTime();
+            }]);
+    </script>
+</body>
+</html>
