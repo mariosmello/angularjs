@@ -1,0 +1,20 @@
+{
+    "type": "success",
+    "message": {
+        "id_customer": "aca69cce32f92a1c5e92b8194f9615c3",
+        "name": "MARIO MELLO SA",
+        "alias": "MARIOSMELLO",
+        "activity": "dealership",
+        "address_postcode": "09351-020",
+        "address_street": "RUA HAVANA",
+        "address_area": "PARQUE DAS AM\u00c9RICAS",
+        "address_number": "217",
+        "address_complement": "FUNDOS",
+        "address_state": "SP",
+        "address_city": "MAU\u00c1",
+        "phone": "11 45162934",
+        "inc_date": "2015-02-25 15:40:14",
+        "website": "DINDIGITAL.COM",
+        "email": "mario@dindigital.com"
+    }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="carsApp">
+<head>
+    <title>Cars Example</title>
+    <style type="text/css">
+        div {
+            width: 30%;
+            float: left;
+        }
+
+        tr {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body ng-controller="ModelsCtrl as modelsCtrl">
+    <div>
+        <h1>Modelos de Carro</h1>
+        <input type="text" ng-model="filterModel.title" placeholder="Filtro por Nome">
+        <table>
+            <tr>
+                <th>Modelo</th>
+            </tr>
+            <tr ng-repeat="model in modelsCtrl.models | filter:filterModel:strict">
+                <td ng-bind="model.title" ng-click="modelsCtrl.findStock()"></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h1>Estoque</h1>
+        <input type="text" ng-model="filterStock.model_name" placeholder="Filtro por Nome">
+        <table>
+            <tr>
+                <th>Modelo</th>
+            </tr>
+            <tr ng-repeat="stock in modelsCtrl.stock | filter:filterStock:strict">
+                <td ng-bind="stock.model_name" ng-click="modelsCtrl.findCustomer()"></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h1>Vendedor</h1>
+        <table>
+            <tr>
+                <th>Nome</th>
+                <th>E-mail</th>
+            </tr>
+            <tr>
+                <td ng-bind="modelsCtrl.customer.name"></td>
+                <td ng-bind="modelsCtrl.customer.email"></td>
+            </tr>
+        </table>
+    </div>
+    <script src="/bower_components/angular/angular.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
