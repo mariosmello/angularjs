@@ -22,13 +22,14 @@
                 <th>Modelo</th>
             </tr>
             <tr ng-repeat="model in modelsCtrl.models | filter:filterModel:strict">
-                <td ng-bind="model.title" ng-click="modelsCtrl.findStock()"></td>
+                <td ng-bind="model.title" ng-click="modelsCtrl.findStock(model)"></td>
             </tr>
         </table>
     </div>
     <div>
         <h1>Estoque</h1>
         <input type="text" ng-model="filterStock.model_name" placeholder="Filtro por Nome">
+        <select ng-model="filterStock.color" ng-options="c for c in modelsCtrl.model.colors"></select>
         <table>
             <tr>
                 <th>Modelo</th>

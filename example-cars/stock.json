@@ -6,7 +6,7 @@
             "id_customer":"aca69cce32f92a1c5e92b8194f9615c3",
             "id_model":"08165852a6a925390c50bbe14834e78c",
             "opt_item_label":"1SB",
-            "color":"COR",
+            "color":"AMARELO",
             "fab_year":"13",
             "mod_year":"13",
             "fuel":"B",
@@ -22,7 +22,7 @@
             "id_customer":"aca69cce32f92a1c5e92b8194f9615c3",
             "id_model":"08165852a6a925390c50bbe14834e78c",
             "opt_item_label":"1SB",
-            "color":"COR",
+            "color":"VERMELHO",
             "fab_year":"13",
             "mod_year":"13",
             "fuel":"B",
@@ -31,7 +31,7 @@
             "shipping":"request",
             "state":"AC",
             "inc_date":"2015-02-25 15:46:58",
-            "model_name":"OUTRO CARRO"
+            "model_name":"CAMARO 6.2 Custom"
         }
     ]
 }
