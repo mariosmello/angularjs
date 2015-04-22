@@ -1,12 +1,12 @@
 {
     "news":[
         {
-            "title":"Teste",
-            "description":"teste"
+            "title":"Última notícia 1",
+            "description":"Vestibulum euismod mattis facilisis. Vivamus eget quam sit amet orci fermentum maximus et eget metus. Ut fermentum turpis augue, nec varius est varius ut. Mauris tincidunt lacinia iaculis. Ut turpis eros, venenatis rhoncus feugiat non, pellentesque ut lacus."
         },
         {
-            "title":"Teste",
-            "description":"teste"
+            "title":"Última notícia 2",
+            "description":"Quisque convallis sodales est sed faucibus. Nunc sit amet euismod urna. Nulla facilisi. Vestibulum placerat sem eu dignissim fringilla. Donec turpis orci, commodo interdum ultricies id, hendrerit in erat. Ut eu varius nisi. Proin id faucibus nisi."
         }
     ]
 }

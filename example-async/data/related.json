@@ -1,0 +1,12 @@
+{
+    "news":[
+        {
+            "title":"Notícia Relacionada 1",
+            "description":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum dui ligula, fermentum quis hendrerit at, eleifend eu orci."
+        },
+        {
+            "title":"Notícia Relacionada 2",
+            "description":"Pellentesque mattis non nibh eget malesuada. Donec non orci mauris. Morbi et sem et velit maximus facilisis. Ut id ultricies turpis. Sed condimentum aliquet turpis, ac hendrerit libero pharetra id."
+        }
+    ]
+}
